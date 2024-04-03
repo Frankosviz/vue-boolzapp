@@ -3,7 +3,7 @@ export const contacts = [
         id : 1,
         name: 'Michele',
         // Controllare se il percorso è giusto per le immagini
-        avatar: '../img/avatar_1.jpg',
+        avatar: 'avatar_1.jpg',
         visible: true,
         messages: [
             {
@@ -26,7 +26,7 @@ export const contacts = [
     {
         id : 2,
         name: 'Fabio',
-        avatar: './img/avatar_2.jpg',
+        avatar: 'avatar_2.jpg',
         visible: true,
         messages: [
             {
@@ -49,7 +49,7 @@ export const contacts = [
     {
         id : 3,
         name: 'Samuele',
-        avatar: './img/avatar_3.jpg',
+        avatar: 'avatar_3.jpg',
         visible: true,
         messages: [
             {
@@ -72,7 +72,7 @@ export const contacts = [
     {
         id : 4,
         name: 'Alessandro B.',
-        avatar: './img/avatar_4.jpg',
+        avatar: 'avatar_4.jpg',
         visible: true,
         messages: [
             {
@@ -90,7 +90,7 @@ export const contacts = [
     {
         id : 5,
         name: 'Alessandro L.',
-        avatar: './img/avatar_5.jpg',
+        avatar: 'avatar_5.jpg',
         visible: true,
         messages: [
             {
@@ -108,7 +108,7 @@ export const contacts = [
     {
         id : 6,
         name: 'Claudia',
-        avatar: './img/avatar_6.jpg',
+        avatar: 'avatar_6.jpg',
         visible: true,
         messages: [
             {
@@ -131,7 +131,7 @@ export const contacts = [
     {
         id : 7,
         name: 'Federico',
-        avatar: './img/avatar_7.jpg',
+        avatar: 'avatar_7.jpg',
         visible: true,
         messages: [
             {
@@ -149,7 +149,7 @@ export const contacts = [
     {
         id : 8,
         name: 'Davide',
-        avatar: 'img/avatar_8.jpg',
+        avatar: 'avatar_8.jpg',
         visible: true,
         messages: [
             {
