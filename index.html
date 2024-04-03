@@ -24,21 +24,44 @@
             <div class="left">
                 <div class="nav d-flex justify-content-between">
                 </div>
-                <div class="div-utents">
-                        
+                <div class="utents">
+
                 </div>
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                
+                    <input type="text" class="form-control" placeholder="cerca o inizia una nuova chat"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="contacts">
 
+                    <!-- Da ripetere con il ciclo for questo div giu -->
+
+                    <div class="contact d-flex align-content-start" v-for="(contact,index) in contacts" :key="contact.id" :class="{'active' : activeContactId === contact.id}">
+                        <div class="avatar">
+                            <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
+                        </div>
+                        
+                        <div>
+                            <h6>{{contact.name}}</h6>
+                            <p>Ultimomessaggio</p>
+                        </div>
+                        <div class="time ms-auto">
+                            12:55
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="right">
                 <div class="nav d-flex justify-content-between">
                 </div>
-                <div class="div-main">
-                    
+                <div class="main">
+                    <div class="d-flex" v-for="(msg,index) in activeContact.messages" >
+                        <div class="msg" :class="msg.status">{{msg.message}}</div>
+                    </div>
+                    <div>
+                        <div class="msg">Ciao</div>
+                    </div>
+
                 </div>
                 <div class="nav">
 

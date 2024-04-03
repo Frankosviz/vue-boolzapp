@@ -23,7 +23,6 @@ body {
 .left {
     width: 40%;
     height: 100%;
-    background-color: blue;
 }
 
 .right {
@@ -36,12 +35,50 @@ body {
     background-color: rgb(234, 234, 234);
 }
 
-.div-utents {
-    height: 90px;
+.utents {
+    height: 70px;
     background-color: rgb(142, 218, 252);
 }
 
-.div-main {
+.contacts {
+    height: calc(100% - 200px);
+    overflow-y: auto;
+}
+
+.contact {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.contacts .avatar{
+    width: 50px;
+
+}
+
+.main {
     height: calc(100% - 160px);
     background-image: url(../img/mine.jpg);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.active {
+    background-color: grey;
+}
+
+.msg {
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.sent {
+    background-color: rgb(142, 218, 252);
+    margin-left: auto;
+}
+
+.received{
+    background-color: white;
+    margin-right: auto;
 }

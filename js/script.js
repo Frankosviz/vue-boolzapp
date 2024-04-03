@@ -5,7 +5,8 @@ const {createApp} = Vue;
 createApp({
     data(){
         return {
-            contacts
+            contacts: contacts,
+            activeContactId: 1
         }
     },
     methods: {
@@ -13,5 +14,10 @@ createApp({
     },
     mounted(){
         console.log(this.contacts)
+    },
+    computed: {
+        activeContact(){
+            return this.contacts.find(contact => contact.id === this.activeContactId)
+        }
     }
 }).mount('#app');
