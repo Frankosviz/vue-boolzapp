@@ -50,12 +50,22 @@ body {
 
 .contact {
     padding: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgray;
 }
 
 .contacts .avatar{
     width: 50px;
+}
 
+.fd-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.fd-small-text {
+    font-size: 15px;
+    font-weight: lighter;
+    color: gray;
 }
 
 .main {
@@ -66,14 +76,14 @@ body {
 }
 
 .active {
-    background-color: grey;
+    background-color: lightgray;
 }
 
 .msg {
     width: 300px;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid grey;
+    margin: 10px;
 }
 
 .sent {
@@ -84,4 +94,21 @@ body {
 .received{
     background-color: white;
     margin-right: auto;
+}
+
+a {
+    font-size: 20px;
+    color: grey;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fd-grow {
+    flex-grow: 4;
+}
+
+.fd-bottom-navbar > a {
+    color: rgb(104, 102, 102);
+    font-size: 30px;
+    padding: 20px;
 }

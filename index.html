@@ -21,13 +21,26 @@
         <div class="container d-flex">
             <div class="left">
                 <div class="nav d-flex justify-content-between">
+                    <div class="d-flex align-items-center justify-content-center gap-2 ms-2">
+                        <a href="#" class="fd-logo"><img src="img/avatar_io.jpg" alt="myAvatar"
+                                class="img-fluid rounded-circle"></a>
+                        <h6 class="fw-bolder">Sofia</h6>
+
+                    </div>
+                    <div class="d-flex align-items-center gap-4 me-3">
+                        <a class="fa-solid fa-circle-notch"></a>
+                        <a class="fa-solid fa-message"></a>
+                        <a class="fa-solid fa-ellipsis-vertical"></a>
+                    </div>
                 </div>
                 <div class="utents">
-
+                    <!-- <div class="fd-logo">
+                        <a href="#" class="img-fluid rounded-circle "><i class="fa-solid fa-bell-slash"></i></a>
+                    </div> -->
                 </div>
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control" placeholder="cerca o inizia una nuova chat"
+                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
                         aria-label="Username" aria-describedby="basic-addon1">
                 </div>
 
@@ -35,16 +48,18 @@
 
                     <!-- Da ripetere con il ciclo for questo div giu -->
 
-                    <div class="contact d-flex align-content-start" v-for="(contact,index) in contacts" :key="contact.id" :class="{'active' : activeContactId === contact.id}" @click="activeContactId = contact.id">
+                    <div class="contact d-flex align-content-start" v-for="(contact,index) in contacts"
+                        :key="contact.id" :class="{'active' : activeContactId === contact.id}"
+                        @click="activeContactId = contact.id">
                         <div class="avatar">
                             <img :src="'./img/' + contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
                         </div>
-                        
-                        <div>
-                            <h6>{{ contact.name }}</h6>
-                            <p>Ultimomessaggio</p>
+
+                        <div class="ms-2">
+                            <h6 class="fw-bolder">{{ contact.name }}</h6>
+                            <p class="fd-small-text">Ultimo messaggio inviato</p>
                         </div>
-                        <div class="time ms-auto">
+                        <div class="time ms-auto fd-small-text">
                             12:55
                         </div>
                     </div>
@@ -52,18 +67,39 @@
             </div>
             <div class="right">
                 <div class="nav d-flex justify-content-between">
+                    <div class="d-flex align-items-center justify-content-center gap-2 ms-2">
+                        <a href="#" class="fd-logo"><img src="img/avatar_1.jpg" alt="activeAvatar"
+                                class="img-fluid rounded-circle"></a>
+                        <div class="d-flex flex-column">
+                            <h6 class="fw-bolder">Michele</h6>
+                            <div class="fd-small-text">Ultimo accesso oggi alle 12:30</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-4 me-3">
+                        <a class="fa-solid fa-magnifying-glass"></a>
+                        <a class="fa-solid fa-paperclip"></a>
+                        <a class="fa-solid fa-ellipsis-vertical"></a>
+                    </div>
                 </div>
                 <div class="main">
-                    <div class="d-flex"  v-for="(msg,index) in activeContact.messages" >
+                    <div class="d-flex" v-for="(msg,index) in activeContact.messages">
                         <div class="msg" :class="msg.status">{{msg.message}}</div>
                     </div>
                     <div>
-                        <div class="msg"></div>
+                        <!-- <div class="msg"></div> -->
                     </div>
 
                 </div>
-                <div class="nav">
-
+                <div class="nav d-flex  align-items-center">
+                    <div class="fd-bottom-navbar">
+                        <a class="fa-solid fa-face-smile"></a>
+                    </div>
+                    <div class="fd-grow">
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div class="fd-bottom-navbar">
+                        <a class="fa-solid fa-microphone"></a>
+                    </div>
                 </div>
             </div>
 
