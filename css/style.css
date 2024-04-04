@@ -44,7 +44,7 @@ body {
 
 .contacts {
     background-color: white;
-    height: calc(100% - 188px);
+    height: calc(100% - 200px);
     overflow-y: auto;
 }
 
@@ -57,16 +57,7 @@ body {
     width: 50px;
 }
 
-.fd-logo {
-    width: 60px;
-    height: 60px;
-}
 
-.fd-small-text {
-    font-size: 15px;
-    font-weight: lighter;
-    color: gray;
-}
 
 .main {
     height: calc(100% - 160px);
@@ -111,4 +102,44 @@ a {
     color: rgb(104, 102, 102);
     font-size: 30px;
     padding: 20px;
+}
+
+.fd-div-height {
+    height: 50px;
+    background-color: white;
+}
+
+.fd-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.div-azure-square {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+}
+
+.div-azure-square > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(142, 218, 252);
+}
+
+.fd-small-text {
+    font-size: 15px;
+    font-weight: lighter;
+    color: gray;
+}
+
+.fd-small-text-link {
+    font-size: 15px;
+    font-weight: lighter;
+    color: rgb(77, 76, 76);
+    text-decoration: underline;
 }

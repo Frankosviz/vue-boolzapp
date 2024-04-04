@@ -9,6 +9,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://kit.fontawesome.com/14dd55bd5d.js" crossorigin="anonymous"></script>
+    <!-- Link per la libreria date - Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js" type="module"></script>
     <title>Boolzapp</title>
@@ -22,9 +24,9 @@
             <div class="left">
                 <div class="nav d-flex justify-content-between">
                     <div class="d-flex align-items-center justify-content-center gap-2 ms-2">
-                        <a href="#" class="fd-logo"><img src="img/avatar_io.jpg" alt="myAvatar"
+                        <a href="#" class="fd-logo"><img src="img/avatar_io_maschio.jpg" alt="myAvatar"
                                 class="img-fluid rounded-circle"></a>
-                        <h6 class="fw-bolder">Sofia</h6>
+                        <h6 class="fw-bolder">Francesco</h6>
 
                     </div>
                     <div class="d-flex align-items-center gap-4 me-3">
@@ -34,21 +36,32 @@
                     </div>
                 </div>
                 <div class="utents">
-                    <!-- <div class="fd-logo">
-                        <a href="#" class="img-fluid rounded-circle "><i class="fa-solid fa-bell-slash"></i></a>
-                    </div> -->
+                    <div class="d-flex justify-content-start align-items-center gap-2">
+                        <div class="div-azure-square">
+                            <i class="fa-solid fa-bell-slash fs-4"></i>
+                        </div>
+                        <div>
+                            <div class="fw-normal">Ricevi notifiche dei messaggi</div>
+                            <a href="#" class="fd-small-text-link">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                        aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="w-100 d-flex fd-div-height">
+                        <span class="input-group-text" id="basic-addon1"><i
+                                class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                            v-model="searchText" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
                 </div>
 
                 <div class="contacts">
-
+                    <div v-if="filteredContacts.length < 1" class="alert alert-danger">
+                        Non ci sono elementi per la tua ricerca
+                    </div>
                     <!-- Da ripetere con il ciclo for questo div giu -->
 
-                    <div class="contact d-flex align-content-start" v-for="(contact,index) in contacts"
+                    <div class="contact d-flex align-content-start" v-for="(contact,index) in filteredContacts"
                         :key="contact.id" :class="{'active' : activeContactId === contact.id}"
                         @click="activeContactId = contact.id">
                         <div class="avatar">
@@ -65,13 +78,14 @@
                     </div>
                 </div>
             </div>
+
             <div class="right">
                 <div class="nav d-flex justify-content-between">
                     <div class="d-flex align-items-center justify-content-center gap-2 ms-2">
-                        <a href="#" class="fd-logo"><img src="img/avatar_1.jpg" alt="activeAvatar"
+                        <a href="#" class="fd-logo"><img :src="'./img/' + activeContact.avatar" :alt="activeContact.name"
                                 class="img-fluid rounded-circle"></a>
                         <div class="d-flex flex-column">
-                            <h6 class="fw-bolder">Michele</h6>
+                            <h6 class="fw-bolder">{{activeContact.name}}</h6>
                             <div class="fd-small-text">Ultimo accesso oggi alle 12:30</div>
                         </div>
                     </div>
@@ -83,7 +97,10 @@
                 </div>
                 <div class="main">
                     <div class="d-flex" v-for="(msg,index) in activeContact.messages">
-                        <div class="msg" :class="msg.status">{{msg.message}}</div>
+                        <div class="msg" :class="msg.status">
+                            <div>{{msg.message}}</div>
+                            <span class="time fd-small-text">{{msg.date}}</span>
+                        </div>
                     </div>
                     <div>
                         <!-- <div class="msg"></div> -->
@@ -95,7 +112,8 @@
                         <a class="fa-solid fa-face-smile"></a>
                     </div>
                     <div class="fd-grow">
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                        <input type="text" class="form-control" v-model="messageText" @keyup.enter="sendMessage"
+                            placeholder="Scrivi un messaggio">
                     </div>
                     <div class="fd-bottom-navbar">
                         <a class="fa-solid fa-microphone"></a>
