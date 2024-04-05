@@ -142,3 +142,13 @@ a {
     color: rgb(77, 76, 76);
     text-decoration: underline;
 }
+
+.dropdown {
+    position: relative;
+    
+}
+
+.dropdown > .dropdown-menu {
+    position: absolute;
+    right: 30px;
+}

@@ -1,5 +1,6 @@
 import { contacts } from './data.js';
 
+import Picker from './emoji-picker.js';
 // Link alla libreria per Luxon per la formattazione di date orari ecc...
 
 const dt = luxon.DateTime;
@@ -37,6 +38,13 @@ createApp({
                 this.activeContact.messages.push(newMessage);
             }, 1000);
         },
+        toggleDropdown() {
+            this.activeMsgIndex = this.activeMsgIndex === index ? null : index;
+        },
+        deleteMsg(i){
+            this.activeContact.messages.splice(i, 1);
+            this.activeMsgIndex = null;
+        }
     },
     mounted() {
         console.log(this.contacts)
@@ -49,4 +57,4 @@ createApp({
             return this.contacts.filter((el)=> el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
     }
-}).mount('#app');
+}).component('Picker', Picker).mount('#app');
