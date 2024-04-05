@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/14dd55bd5d.js" crossorigin="anonymous"></script>
     <!-- Link per la libreria date - Luxon -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@3.0.0/dist/index.js"></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js" type="module"></script>
     <title>Boolzapp</title>
@@ -82,8 +83,8 @@
             <div class="right">
                 <div class="nav d-flex justify-content-between">
                     <div class="d-flex align-items-center justify-content-center gap-2 ms-2">
-                        <a href="#" class="fd-logo"><img :src="'./img/' + activeContact.avatar" :alt="activeContact.name"
-                                class="img-fluid rounded-circle"></a>
+                        <a href="#" class="fd-logo"><img :src="'./img/' + activeContact.avatar"
+                                :alt="activeContact.name" class="img-fluid rounded-circle"></a>
                         <div class="d-flex flex-column">
                             <h6 class="fw-bolder">{{activeContact.name}}</h6>
                             <div class="fd-small-text">Ultimo accesso oggi alle 12:30</div>
@@ -97,9 +98,21 @@
                 </div>
                 <div class="main">
                     <div class="d-flex" v-for="(msg,index) in activeContact.messages">
-                        <div class="msg" :class="msg.status">
-                            <div>{{msg.message}}</div>
-                            <span class="time fd-small-text">{{msg.date}}</span>
+                        <div class="msg d-flex justify-content-between" :class="msg.status">
+                            <div>
+                                <div>{{msg.message}}</div>
+                                <span class="time fd-small-text">{{msg.date}}</span>
+                            </div>
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle"  >
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Message info</a></li>
+                                        <li><a class="dropdown-item" href="#">Delete message</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -124,6 +137,7 @@
         </div>
     </div>
 
+    
 </body>
 
 </html>
