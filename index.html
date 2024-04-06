@@ -98,7 +98,8 @@
                                 :alt="activeContact.name" class="img-fluid rounded-circle"></a>
                         <div class="d-flex flex-column">
                             <h6 class="fw-bolder">{{activeContact.name}}</h6>
-                            <div class="fd-small-text">Ultimo accesso oggi alle 12:30</div>
+                            <div class="fd-small-text" v-if="activeContact.messages.length > 0">Ultimo accesso {{activeContact.messages[activeContact.messages.length - 1].date}}</div>
+                            <div class="fd-small-text" v-else>Ultimo accesso non rilevato</div>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-4 me-3">
@@ -116,11 +117,11 @@
                             </div>
                             <div>
                                 <div class="dropdown">
-                                    <button type="button" class="btn btn-light dropdown-toggle" @click="toggleDropdown(index)">
-                                    </button>
-                                    <ul class="dropdown-menu" :class="{show: activeMsgIndex === Index}">
-                                        <li><a class="dropdown-item" href="#">Message info</a></li>
-                                        <li><a class="dropdown-item" href="#" @click="deleteMsg(index)">Delete message</a></li>
+                                    <button role="button" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" @click="toggleDropdown(index)">
+                                      </button>
+                                    <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}">
+                                        <li><button class="dropdown-item" type="button" > Message info</button></li>
+                                        <li><button class="dropdown-item" type="button" @click="deleteMsg(index)"> Delete message</button></li>
                                     </ul>
                                 </div>
                             </div>

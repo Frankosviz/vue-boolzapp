@@ -13,12 +13,14 @@ createApp({
             contacts: contacts,
             activeContactId: 1,
             messageText: '',
-            searchText: ''
+            searchText: '',
+            activeMsgIndex: null
         }
     },
     methods: {
         setActiveContact(id) {
             this.activeContactId = id;
+            this.activeMsgIndex = null;
         },
         sendMessage() {
             const newMessage = {
@@ -38,7 +40,7 @@ createApp({
                 this.activeContact.messages.push(newMessage);
             }, 1000);
         },
-        toggleDropdown() {
+        toggleDropdown(index) {
             this.activeMsgIndex = this.activeMsgIndex === index ? null : index;
         },
         deleteMsg(i){
