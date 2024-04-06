@@ -82,10 +82,10 @@
 
                         <div class="ms-2">
                             <h6 class="fw-bolder">{{ contact.name }}</h6>
-                            <p class="fd-small-text">Ultimo messaggio inviato</p>
+                            <p class="fd-small-text">{{getLastMessage(contact.id)}}</p>
                         </div>
                         <div class="time ms-auto fd-small-text">
-                            12:55
+                            {{getLastMsgDate(contact.id)}}
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,8 @@
                             placeholder="Scrivi un messaggio">
                     </div>
                     <div class="fd-bottom-navbar">
-                        <a class="fa-solid fa-microphone"></a>
+                        <a href="#" class="fa-regular fa-paper-plane" v-if="messageText" @click="sendMessage()"></a>
+                        <a class="fa-solid fa-microphone" v-else></a>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,7 @@ createApp({
         }
     },
     methods: {
+        
         setActiveContact(id) {
             this.activeContactId = id;
             this.activeMsgIndex = null;
@@ -46,7 +47,17 @@ createApp({
         deleteMsg(i){
             this.activeContact.messages.splice(i, 1);
             this.activeMsgIndex = null;
-        }
+        },
+        getLastMessage(id) {
+            const index = this.contacts.findIndex((el) => el.id === id);
+            const msgLastIndex = this.contacts[index].messages.length - 1;
+            return this.contacts[index].messages[msgLastIndex].message;
+        },
+        getLastMsgDate(id) {
+            const index = this.contacts.findIndex((el) => el.id === id);
+            const msgLastIndex = this.contacts[index].messages.length - 1;
+            return this.contacts[index].messages[msgLastIndex].date;
+        },
     },
     mounted() {
         console.log(this.contacts)
