@@ -109,6 +109,10 @@
                     </div>
                 </div>
                 <div class="main">
+                    <div v-if="showWelcomeMessage" class="welcome-message">
+                        <h2>Benvenuto a Boolzapp</h2>
+                        <p>Seleziona un contatto dalla lista per iniziare una conversazione.</p>
+                    </div>
                     <div class="d-flex" v-for="(msg,index) in activeContact.messages">
                         <div class="msg d-flex justify-content-between" :class="msg.status">
                             <div>

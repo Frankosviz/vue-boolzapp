@@ -1,6 +1,6 @@
 export const contacts = [
     {
-        id : 1,
+        id: 1,
         name: 'Michele',
         // Controllare se il percorso è giusto per le immagini
         avatar: 'avatar_1.jpg',
@@ -24,7 +24,7 @@ export const contacts = [
         ],
     },
     {
-        id : 2,
+        id: 2,
         name: 'Fabio',
         avatar: 'avatar_2.jpg',
         visible: true,
@@ -47,7 +47,7 @@ export const contacts = [
         ],
     },
     {
-        id : 3,
+        id: 3,
         name: 'Samuele',
         avatar: 'avatar_3.jpg',
         visible: true,
@@ -70,7 +70,7 @@ export const contacts = [
         ],
     },
     {
-        id : 4,
+        id: 4,
         name: 'Alessandro B.',
         avatar: 'avatar_4.jpg',
         visible: true,
@@ -88,7 +88,7 @@ export const contacts = [
         ],
     },
     {
-        id : 5,
+        id: 5,
         name: 'Alessandro L.',
         avatar: 'avatar_5.jpg',
         visible: true,
@@ -106,7 +106,7 @@ export const contacts = [
         ],
     },
     {
-        id : 6,
+        id: 6,
         name: 'Claudia',
         avatar: 'avatar_6.jpg',
         visible: true,
@@ -129,7 +129,7 @@ export const contacts = [
         ],
     },
     {
-        id : 7,
+        id: 7,
         name: 'Federico',
         avatar: 'avatar_7.jpg',
         visible: true,
@@ -147,7 +147,7 @@ export const contacts = [
         ],
     },
     {
-        id : 8,
+        id: 8,
         name: 'Davide',
         avatar: 'avatar_8.jpg',
         visible: true,
@@ -170,3 +170,6 @@ export const contacts = [
         ],
     }
 ]
+
+// In const AIAnswers stilami una lista di message varie da poter poi aggiungere come risposte random
+

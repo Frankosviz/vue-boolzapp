@@ -152,3 +152,8 @@ a {
     position: absolute;
     right: 30px;
 }
+
+.splash-page {
+    text-align: center;
+    margin-top: 100px;
+  }

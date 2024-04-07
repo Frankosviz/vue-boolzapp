@@ -14,17 +14,16 @@ createApp({
             activeContactId: 1,
             messageText: '',
             searchText: '',
-            activeMsgIndex: null
+            activeMsgIndex: null,
         }
     },
     methods: {
-
-        setActiveContact(id) {
-            this.activeContactId = id;
-            this.activeMsgIndex = null;
+        selectContact(contactId) {
+            this.activeContactId = contactId;
+            this.showWelcomeMessage = false; // Nasconde il messaggio di benvenuto quando un contatto viene selezionato
         },
         sendMessage() {
-            const newMessage = {
+                const newMessage = {
                 date: new Date().toLocaleString(),
                 message: this.messageText,
                 status: 'sent'
@@ -54,7 +53,7 @@ createApp({
                     this.activeContact.messages.push(newMessage);
                 }, 1000);
             };
-            
+
         },
         toggleDropdown(index) {
             this.activeMsgIndex = this.activeMsgIndex === index ? null : index;
@@ -75,7 +74,6 @@ createApp({
         },
     },
     mounted() {
-        console.log(this.contacts)
     },
     computed: {
         activeContact() {
